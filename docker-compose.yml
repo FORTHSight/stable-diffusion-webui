@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  stablediffusionwebui:
+    image: stablediffusionwebui
+    runtime: nvidia
+    shm_size: 8GB
+    #volumes:
+      #- ./weights/model.ckpt:/model.ckpt
+    build:
+      args:
+        group_id: 1000
+        user_id: 1000
+      context: .
+    environment:
+      PYTHONPATH: /app
+    
+    entrypoint: sleep infinity
+    # command: /bin/sh -c "while sleep 1000; do :; done"
